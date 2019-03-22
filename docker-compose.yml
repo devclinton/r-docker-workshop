@@ -1,0 +1,19 @@
+version: '2.3'
+services:
+  social_mapping:
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    runtime: nvidia
+    image: idm-docker-staging.packages.idmod.org/r-docker-workshop
+    ports:
+      - "8787:8787"
+    environment:
+      - "PASSWORD=rstudio"
+      - "USERID=${UID}"
+      - "USER=${USER}"
+    volumes:
+      - ./data:/home/rstudio/r-docker-workshop/data
+      - ./output:/home/rstudio/r-docker-workshop/output
+      - ./scripts:/home/rstudio/r-docker-workshop/scripts
+
