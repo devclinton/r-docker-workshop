@@ -1,3 +1,2 @@
 # https://docs.docker.com/engine/reference/commandline/build/#use-a-dockerignore-file
-data/*
 output/*

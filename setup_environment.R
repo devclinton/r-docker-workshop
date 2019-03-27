@@ -2,12 +2,8 @@
 
 pkgLoad <- function(packages) {
 
-    # we should probably change this to devtools::install_version and parse a requirement.txt file
-    # this will make it easier to maintain our R packages in both docker and dev environments
     packagecheck <- match( packages, utils::installed.packages()[,1] )
-
     packagestoinstall <- packages[ is.na( packagecheck ) ]
-
     if( length( packagestoinstall ) > 0L ) {
         utils::install.packages( packagestoinstall)
     } else {

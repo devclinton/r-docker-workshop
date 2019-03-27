@@ -1,17 +1,39 @@
 version: '2.3'
 services:
-  social_mapping:
+  # This is the list of services and containers that make our application
+  # for more Data Science projects, you will probably have one container
+  rstudio:
+    # This defines the build information. We just need to give it the context
+    # and the Dockerfile
     build:
       context: .
       dockerfile: Dockerfile
-#    runtime: nvidia
+    # When on machines with nvidia-docker we may want to use
+    # the nvidia runtime to give us GPU access
+    #runtime: nvidia
+    # name of the image
     image: idm-docker-staging.packages.idmod.org/r-docker-workshop
+    # Maps ports from Host -> Container
+    # Here we hap host 8787 to container 8787.
+    # Within the container RStudio runs on Port 8787
     ports:
       - "8787:8787"
+    # Environment info
+    # Many docker projects do configuration through environment variables
+    # because they are easy to change and require no local copies like files
+    # 
+    # Here we are configuring some option for the base image RStudio
+    # Like the password and the User
     environment:
       - "PASSWORD=test"
       - "USERID=${UID}"
       - "USER=${USER}"
+    # Here we map host volumes to container volumes
+    #
+    # Notice in this compose we map in scripts and data even though
+    # we added them in our dockerfile
+    # This allows us to modify the script/data and run inside the container
+    # and test new data or make changes to the script itself
     volumes:
       - ./data:/home/rstudio/r-docker-workshop/data
       - ./output:/home/rstudio/r-docker-workshop/output
