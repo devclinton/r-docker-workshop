@@ -16,4 +16,5 @@ RUN /usr/local/bin/Rscript /home/rstudio/r-docker-workshop/setup_environment.R
 
 # Bake in the data and the scripts for Publishing
 # To Reduce confusion you may want to comment this out during development
-ADD data scripts /home/rstudio/r-docker-workshop/
+ADD data /home/rstudio/r-docker-workshop/data
+ADD scripts /home/rstudio/r-docker-workshop/scripts

@@ -21,17 +21,12 @@ grpProtein <- kmeans(food[,-1], centers=7, nstart=10)
 o=order(grpProtein$cluster)
 data.frame(food$Country[o],grpProtein$cluster[o])
 
-png('../output/2d_cluster_represent.png')
 library(cluster)
+png('../output/2d_cluster_represent.png')
 clusplot(food[,-1], grpProtein$cluster, main='2D representation of the Cluster solution', color=TRUE, shade=TRUE, labels=2, lines=0)
 dev.off()
 
 png('../output/dendrogram.png')
 foodagg=agnes(food,diss=FALSE,metric="euclidian")
 plot(foodagg, main='Dendrogram') ## dendrogram
-dev.off()
-
-png('../output/agglomerative_coeffiecient.png')
-groups <- cutree(foodagg, k=4) # cut tree into 3 clusters
-rect.hclust(foodagg, k=4, border="red")
 dev.off()
