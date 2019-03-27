@@ -26,8 +26,8 @@ services:
     # Like the password and the User
     environment:
       - "PASSWORD=test"
-      - "USERID=${UID}"
-      - "USER=${USER}"
+      - "USERID=${UID:-1000}"
+      #- "USER=rstudio"
     # Here we map host volumes to container volumes
     #
     # Notice in this compose we map in scripts and data even though
