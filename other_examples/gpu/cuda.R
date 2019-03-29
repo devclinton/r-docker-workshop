@@ -1,6 +1,8 @@
 knitr::opts_chunk$set(echo = TRUE)
-require(pryr)
-require(gpuR)
+library("pryr")
+library("gpuR")
+
+detectGPUs()
 
 result <- data.frame()
 
