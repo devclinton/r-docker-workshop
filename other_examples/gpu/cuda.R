@@ -27,3 +27,8 @@ for (exponent in seq(2,24,2)){
  result <- rbind(result,c(nrow(A), classic, gpu, vcl)) 
 }
 colnames(result) <- c("nrow", "time_classic", "time_gpu", "time_vcl")
+
+# see http://www.r-tutor.com/gpu-computing
+# and https://cran.r-project.org/web/packages/gpuR/index.html
+# https://cran.r-project.org/web/packages/gpuR/gpuR.pdf
+# for more examples and complete documentation of R GPU functions
