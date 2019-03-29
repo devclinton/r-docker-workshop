@@ -3,6 +3,15 @@ services:
   # This is the list of services and containers that make our application
   # for more Data Science projects, you will probably have one container
   notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # When on machines with nvidia-docker we may want to use
+    # the nvidia runtime to give us GPU access
+    #runtime: nvidia
+    # name of the image Notice here I specify image to just have a name because
+    # i do not intend to share it
+    image: gpu_example
     image: rocker/cuda
     runtime: nvidia
     command: /usr/local/bin/Rscript /scripts/cuda.R
