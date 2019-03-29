@@ -1,0 +1,11 @@
+version: '2.3'
+services:
+  # This is the list of services and containers that make our application
+  # for more Data Science projects, you will probably have one container
+  notebook:
+    image: rocker/cuda
+    runtime: nvidia
+    command: /usr/loca/bin/Rscript /scripts/cuda.R
+    volumes:
+      - .:/scripts
+
