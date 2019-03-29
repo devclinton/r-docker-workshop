@@ -5,7 +5,7 @@ services:
   notebook:
     image: rocker/cuda
     runtime: nvidia
-    command: /usr/loca/bin/Rscript /scripts/cuda.R
+    command: /usr/local/bin/Rscript /scripts/cuda.R
     volumes:
       - .:/scripts
 
