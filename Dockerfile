@@ -2,6 +2,8 @@
 # See https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image
 # For use details on this image
 FROM rocker/rstudio
+LABEL AUTHOR=ccollins@idmod.org
+LABEL DESCRIPTION="An example R studio image"
 
 # update package indexes
 RUN apt-get update && \
